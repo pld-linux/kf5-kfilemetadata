@@ -11,7 +11,7 @@
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
 Version:	5.24.0
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -87,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libKF5FileMetaData.so.3
 %dir %{_libdir}/qt5/plugins/kf5/kfilemetadata
 %dir %{_libdir}/qt5/plugins/kf5/kfilemetadata/writers
-%attr(755,root,root) /usr/lib64/qt5/plugins/kf5/kfilemetadata/writers/kfilemetadata_taglibwriter.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/writers/kfilemetadata_taglibwriter.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_epubextractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_exiv2extractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_ffmpegextractor.so
