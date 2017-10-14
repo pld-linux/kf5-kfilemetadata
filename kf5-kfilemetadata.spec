@@ -5,17 +5,17 @@
 # TODO:
 # - runtime Requires if any
 
-%define		kdeframever	5.24
+%define		kdeframever	5.39
 %define		qtver		5.3.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
-Version:	5.24.0
-Release:	4
+Version:	5.39.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	481cbdad48e1443e4d0294bc726a902a
+# Source0-md5:	1d3c50629123cf5eabf94fba87ff0be9
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{kfname}
+%find_lang %{kfname}5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{kfname}.lang
+%files -f %{kfname}5.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libKF5FileMetaData.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5FileMetaData.so.3
