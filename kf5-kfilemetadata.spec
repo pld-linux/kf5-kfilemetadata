@@ -11,7 +11,7 @@
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
 Version:	5.39.0
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -25,6 +25,7 @@ BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 %endif
+BuildRequires:	attr-devel
 BuildRequires:	catdoc
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	ebook-tools-devel
