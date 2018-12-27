@@ -1,21 +1,21 @@
 #
 # Conditional build:
-%bcond_without	tests		# build without tests
+%bcond_with	tests		# build with tests
 
 # TODO:
 # - runtime Requires if any
 
-%define		kdeframever	5.39
-%define		qtver		5.3.2
+%define		kdeframever	5.53
+%define		qtver		5.9.0
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
-Version:	5.39.0
-Release:	3
+Version:	5.53.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	1d3c50629123cf5eabf94fba87ff0be9
+# Source0-md5:	e2d2de67f9dcbdabc950ef0a3ad5d5c5
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -59,7 +59,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
 %setup -q -n %{kfname}-%{version}
-%patch0 -p1
+#%%patch0 -p1
 
 %build
 install -d build
@@ -86,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kfname}5.lang
 %defattr(644,root,root,755)
+/etc/xdg/kfilemetadata.categories
 %attr(755,root,root) %{_libdir}/libKF5FileMetaData.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5FileMetaData.so.3
 %dir %{_libdir}/qt5/plugins/kf5/kfilemetadata
@@ -100,10 +101,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_plaintextextractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_poextractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_popplerextractor.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_postscriptdscextractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_taglibextractor.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_xmlextractor.so
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libKF5FileMetaData.so
 %{_includedir}/KF5/KFileMetaData
 %{_libdir}/cmake/KF5FileMetaData
+%{_libdir}/qt5/mkspecs/modules/qt_KFileMetaData.pri
