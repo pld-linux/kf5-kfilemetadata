@@ -32,7 +32,7 @@ BuildRequires:	cmake >= 2.8.12
 BuildRequires:	ebook-tools-devel
 BuildRequires:	exiv2-devel
 BuildRequires:	ffmpeg-devel
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	ninja
 BuildRequires:	poppler-qt5-devel
 BuildRequires:	qt5-build >= %{qtver}
