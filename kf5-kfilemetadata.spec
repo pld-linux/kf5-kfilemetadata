@@ -5,17 +5,17 @@
 # TODO:
 # - runtime Requires if any
 
-%define		kdeframever	5.79
+%define		kdeframever	5.80
 %define		qtver		5.9.0
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
-Version:	5.79.0
+Version:	5.80.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	71bdc5e4dc4b4bda01190a9fea6209f4
+# Source0-md5:	07c5cb0f6d0f29a0346bbebcf1be8f29
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -34,6 +34,7 @@ BuildRequires:	exiv2-devel
 BuildRequires:	ffmpeg-devel
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
+BuildRequires:	kf5-ki18n-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	poppler-qt5-devel
 BuildRequires:	qt5-build >= %{qtver}
@@ -89,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/qlogging-categories5/kfilemetadata.categories
 %attr(755,root,root) %{_libdir}/libKF5FileMetaData.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libKF5FileMetaData.so.3
+%ghost %{_libdir}/libKF5FileMetaData.so.3
 %dir %{_libdir}/qt5/plugins/kf5/kfilemetadata
 %dir %{_libdir}/qt5/plugins/kf5/kfilemetadata/writers
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/writers/kfilemetadata_taglibwriter.so
@@ -109,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libKF5FileMetaData.so
+%{_libdir}/libKF5FileMetaData.so
 %{_includedir}/KF5/KFileMetaData
 %{_libdir}/cmake/KF5FileMetaData
 %{_libdir}/qt5/mkspecs/modules/qt_KFileMetaData.pri
