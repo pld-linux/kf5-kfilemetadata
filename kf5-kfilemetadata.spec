@@ -5,17 +5,17 @@
 # TODO:
 # - runtime Requires if any
 
-%define		kdeframever	5.81
+%define		kdeframever	5.82
 %define		qtver		5.9.0
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
-Version:	5.81.0
+Version:	5.82.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	cafdfb978dd9fee012b455ba19a46044
+# Source0-md5:	c6d6b7506ad06c510bdc82aa5667e7a0
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -33,7 +33,9 @@ BuildRequires:	ebook-tools-devel
 BuildRequires:	exiv2-devel
 BuildRequires:	ffmpeg-devel
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
+BuildRequires:	kf5-karchive-devel >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
+BuildRequires:	kf5-kcoreaddons-devel >= %{version}
 BuildRequires:	kf5-ki18n-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	poppler-qt5-devel
