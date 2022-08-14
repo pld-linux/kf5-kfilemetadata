@@ -6,17 +6,17 @@
 # - runtime Requires if any
 
 %define         kdeappsver      21.12.3
-%define		kdeframever	5.96
+%define		kdeframever	5.97
 %define		qtver		5.15.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Name:		kf5-%{kfname}
-Version:	5.96.0
+Version:	5.97.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	9bb08bda4d3bf08051f655e807743ead
+# Source0-md5:	a204986f080c48927a4adb86267ba812
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -114,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_xmlextractor.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_mobiextractor.so
 %{_datadir}/qlogging-categories5/kfilemetadata.renamecategories
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_pngextractor.so
 
 %files devel
 %defattr(644,root,root,755)
