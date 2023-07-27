@@ -10,9 +10,10 @@
 %define		qtver		5.15.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
+Summary(pl.UTF-8):	Biblioteka do obsługi i wydobywania metadanych plików
 Name:		kf5-%{kfname}
 Version:	5.108.0
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -82,6 +83,7 @@ cd build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 # not supported by glibc yet
