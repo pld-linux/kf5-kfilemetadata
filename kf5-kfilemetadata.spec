@@ -6,18 +6,18 @@
 # - runtime Requires if any
 
 %define         kdeappsver      21.12.3
-%define		kdeframever	5.108
+%define		kdeframever	5.109
 %define		qtver		5.15.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Summary(pl.UTF-8):	Biblioteka do obsługi i wydobywania metadanych plików
 Name:		kf5-%{kfname}
-Version:	5.108.0
-Release:	2
+Version:	5.109.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	e0aa6d00455e34f74fa4edcc54d0d992
+# Source0-md5:	c796f5097f2185c33a61d8e32a296066
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -30,7 +30,7 @@ BuildRequires:	Qt5Widgets-devel >= %{qtver}
 %endif
 BuildRequires:	attr-devel
 BuildRequires:	catdoc
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.16
 BuildRequires:	ebook-tools-devel
 BuildRequires:	exiv2-devel
 BuildRequires:	ffmpeg-devel
@@ -70,15 +70,14 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 #%%patch0 -p1
 
 %build
-install -d build
-cd build
-%cmake -G Ninja \
+%cmake -B build \
+	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	..
-%ninja_build
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 
-%{?with_tests:%ninja_build test}
+%ninja_build -C build
+
+%{?with_tests:%ninja_build -C build test}
 
 
 %install
