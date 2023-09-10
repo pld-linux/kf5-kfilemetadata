@@ -6,18 +6,18 @@
 # - runtime Requires if any
 
 %define         kdeappsver      21.12.3
-%define		kdeframever	5.109
+%define		kdeframever	5.110
 %define		qtver		5.15.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Summary(pl.UTF-8):	Biblioteka do obsługi i wydobywania metadanych plików
 Name:		kf5-%{kfname}
-Version:	5.109.0
+Version:	5.110.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c796f5097f2185c33a61d8e32a296066
+# Source0-md5:	0d911624125697bfc0e7e6a6a7c2e6b7
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
