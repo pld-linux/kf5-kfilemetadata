@@ -6,27 +6,27 @@
 # - runtime Requires if any
 
 %define         kdeappsver      21.12.3
-%define		kdeframever	5.114
+%define		kdeframever	5.249.0
 %define		qtver		5.15.2
 %define		kfname		kfilemetadata
 Summary:	File metadata and extraction library
 Summary(pl.UTF-8):	Biblioteka do obsługi i wydobywania metadanych plików
 Name:		kf5-%{kfname}
-Version:	5.114.0
-Release:	1
+Version:	5.249.0
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	bfee16190bae12327c2be33ad31ae2b5
+Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	b3ff25663dc398081c7f026e139bb57e
 Patch0:		xattr.patch
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
-BuildRequires:	Qt5Network-devel >= %{qtver}
-BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Network-devel >= %{qtver}
+BuildRequires:	Qt6Test-devel >= %{qtver}
 %if %{with tests}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
 %endif
 BuildRequires:	attr-devel
 BuildRequires:	catdoc
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 # not supported by glibc yet
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
-%find_lang %{kfname}5
+%find_lang %{kfname}6
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,34 +96,34 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{kfname}5.lang
+%files -f %{kfname}6.lang
 %defattr(644,root,root,755)
-%{_datadir}/qlogging-categories5/kfilemetadata.categories
-%attr(755,root,root) %{_libdir}/libKF5FileMetaData.so.*.*.*
-%ghost %{_libdir}/libKF5FileMetaData.so.3
-%dir %{_libdir}/qt5/plugins/kf5/kfilemetadata
-%dir %{_libdir}/qt5/plugins/kf5/kfilemetadata/writers
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/writers/kfilemetadata_taglibwriter.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_epubextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_exiv2extractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_fb2extractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_ffmpegextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_odfextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_office2007extractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_officeextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_plaintextextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_poextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_popplerextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_postscriptdscextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_taglibextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_xmlextractor.so
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_mobiextractor.so
-%{_datadir}/qlogging-categories5/kfilemetadata.renamecategories
-%{_libdir}/qt5/plugins/kf5/kfilemetadata/kfilemetadata_pngextractor.so
+%{_datadir}/qlogging-categories6/kfilemetadata.categories
+%attr(755,root,root) %{_libdir}/libKF6FileMetaData.so.*.*.*
+%ghost %{_libdir}/libKF6FileMetaData.so.3
+%dir %{_libdir}/qt6/plugins/kf6/kfilemetadata
+%dir %{_libdir}/qt6/plugins/kf6/kfilemetadata/writers
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/writers/kfilemetadata_taglibwriter.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_epubextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_exiv2extractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_fb2extractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_ffmpegextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_odfextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_office2007extractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_officeextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_plaintextextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_poextractor.so
+#%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_popplerextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_postscriptdscextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_taglibextractor.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_xmlextractor.so
+#%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_mobiextractor.so
+%attr(755,root,root) %{_datadir}/qlogging-categories6/kfilemetadata.renamecategories
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_pngextractor.so
+#%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfilemetadata/kfilemetadata_krita.so
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libKF5FileMetaData.so
-%{_includedir}/KF5/KFileMetaData
-%{_libdir}/cmake/KF5FileMetaData
-%{_libdir}/qt5/mkspecs/modules/qt_KFileMetaData.pri
+%{_libdir}/libKF6FileMetaData.so
+%{_includedir}/KF6/KFileMetaData
+%{_libdir}/cmake/KF6FileMetaData
